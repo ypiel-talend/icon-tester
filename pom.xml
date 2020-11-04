@@ -15,6 +15,8 @@
   <description>Test all icon formats</description>
 
   <properties>
+    <talend.validation.metadata>false</talend.validation.metadata>
+    <talend.validation.family>false</talend.validation.family>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <!--
@@ -32,6 +34,7 @@
     TIP: it is recommended to set this property into your settings.xml in an active by default profile.
     -->
     <talend.component.studioHome />
+    <talend.icons.workaround>false</talend.icons.workaround>
   </properties>
 
   <dependencies>
@@ -77,6 +80,22 @@
           <runOrder>alphabetical</runOrder>
         </configuration>
       </plugin>
+
+      <plugin>
+	<groupId>org.talend.sdk.component</groupId>
+	<artifactId>talend-component-maven-plugin</artifactId>
+	<version>1.1.25</version>
+	<executions>
+	    <execution>
+		<id>talend-svg2png</id>
+		<phase>none</phase>
+		<goals>
+		    <goal>svg2png</goal>
+		</goals>
+	    </execution>
+	</executions>
+      </plugin>
+
     </plugins>
   </build>
 </project>
